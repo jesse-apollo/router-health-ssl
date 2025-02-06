@@ -3,6 +3,7 @@
 A Dockerfile to build Apollo Router with SSL Health Check (via stunnel).
 
 Internal router bind port: 4000
+
 Internal health check bind port: 8080
 
 ## Build
