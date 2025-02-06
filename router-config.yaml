@@ -1,0 +1,13 @@
+supergraph:
+  # The socket address and port to listen on
+  listen: 0.0.0.0:4000
+  introspection: true
+health_check:
+  listen: 127.0.0.1:9000
+  enabled: true
+  path: /health # Optional, default: /health
+sandbox:
+  enabled: true
+homepage:
+  enabled: false
+  

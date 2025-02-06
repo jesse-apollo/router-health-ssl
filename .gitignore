@@ -1,0 +1,6 @@
+.env
+server.key
+server.pem
+router.amd64
+router.arm64
+dist/
