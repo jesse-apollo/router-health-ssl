@@ -36,3 +36,14 @@ check-cert:
 
 test:
 	curl -v -k https://localhost:8080/health
+
+deploy:
+	@echo "Deploy to Google Cloud VM for Testing"
+	docker tag router-amd64:latest gcr.io/lovelace-demo/router-health-ssl:latest
+	docker push gcr.io/lovelace-demo/router-health-ssl:latest
+	gcloud compute instances create-with-container health-ssl --zone us-east1-b \
+		--container-image=gcr.io/lovelace-demo/router-health-ssl:latest \
+		--container-env-file=.env || \
+		gcloud compute instances update-container health-ssl --zone us-east1-b \
+		--container-image=gcr.io/lovelace-demo/router-health-ssl:latest \
+		--container-env-file=.env

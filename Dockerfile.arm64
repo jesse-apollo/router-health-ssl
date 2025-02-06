@@ -11,4 +11,7 @@ COPY server.key /etc/stunnel/key.pem
 
 COPY supervisord.conf /etc/supervisord.conf
 
+EXPOSE 4000/tcp
+EXPOSE 8080/tcp
+
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
